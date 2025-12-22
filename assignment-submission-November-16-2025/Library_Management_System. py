@@ -1,0 +1,113 @@
+
+
+library = []  
+
+
+def get_non_empty(prompt):
+    """Accept only non-empty input."""
+    while True:
+        value = input(prompt).strip()
+        if value:
+            return value
+        print("❌ Input cannot be empty! Try again.")
+
+
+def get_price(prompt):
+    """Accept and validate numeric price."""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("❌ Please enter a valid number!")
+
+
+# ---------- Library Operations ----------
+
+def add_book():
+    print("\n📘 Add a New Book")
+    title = get_non_empty("Enter book title: ")
+    author = get_non_empty("Enter author name: ")
+    price = get_price("Enter price: $")
+
+    book = {
+        "title": title,
+        "author": author,
+        "price": price
+    }
+
+    library.append(book)
+    print("✔ Book added successfully!\n")
+
+
+def view_books():
+    print("\n📚 All Books in Library")
+    if not library:
+        print("No books available.\n")
+        return
+
+    for idx, book in enumerate(library, start=1):
+        print(f"{idx}. {book['title']} by {book['author']} - ${book['price']}")
+    print()
+
+
+def search_by_author():
+    print("\n🔍 Search Books by Author")
+    author = get_non_empty("Enter author name: ")
+
+    results = [b for b in library if b["author"].lower() == author.lower()]
+
+    if results:
+        for b in results:
+            print(f"- {b['title']} (${b['price']})")
+    else:
+        print("No books found for this author.")
+    print()
+
+
+def filter_by_price():
+    print("\n💲 Filter Books by Price")
+    min_price = get_price("Show books priced above: $")
+
+    results = [b for b in library if b["price"] >= min_price]
+
+    if results:
+        for b in results:
+            print(f"- {b['title']} (${b['price']})")
+    else:
+        print("No books found in this price range.")
+    print()
+
+
+# ---------- Main Menu (User Interface) ----------
+
+def menu():
+    while True:
+        print("====================================")
+        print("        LIBRARY MANAGEMENT")
+        print("====================================")
+        print("1. Add Book")
+        print("2. View All Books")
+        print("3. Search by Author")
+        print("4. Filter by Price")
+        print("5. Exit")
+        print("====================================")
+
+        choice = input("Enter your choice (1-5): ")
+
+        if choice == "1":
+            add_book()
+        elif choice == "2":
+            view_books()
+        elif choice == "3":
+            search_by_author()
+        elif choice == "4":
+            filter_by_price()
+        elif choice == "5":
+            print("Goodbye! 👋")
+            break
+        else:
+            print("❌ Invalid choice. Please select between 1 and 5.\n")
+
+
+# Run the program
+menu()
