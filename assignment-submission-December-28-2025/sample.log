@@ -1,0 +1,11 @@
+2025-01-10 10:12:45 INFO Application started
+2025-01-10 10:13:02 DEBUG Loading configuration
+2025-01-10 10:13:45 WARNING Low disk space
+2025-01-10 10:15:10 ERROR Database connection failed
+2025-01-10 10:16:22 INFO Retrying connection
+2025-01-10 10:17:50 ERROR Database connection failed
+2025-01-10 10:18:30 INFO Application running
+2025-01-10 10:20:05 DEBUG Background job executed
+2025-01-10 10:21:40 WARNING High memory usage
+2025-01-10 10:22:55 INFO Application shutdown
+
