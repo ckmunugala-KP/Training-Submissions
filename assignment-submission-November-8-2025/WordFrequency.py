@@ -15,4 +15,4 @@ for word in words:
 
 print("\nWord Frequency:")
 for word, freq in word_freq.items():
-    print(f"{word}: {freq}")
+    print(f"{word}: {freq}.")

@@ -17,4 +17,4 @@ elif choice == "2":
         print(" " * (rows - i) + "*" * (2 * i - 1))
 
 else:
-    print("Invalid choice. Please enter 1 or 2.")
+    print("Invalid choice. Please enter 1 or 2..")
